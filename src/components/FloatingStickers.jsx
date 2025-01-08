@@ -4,7 +4,9 @@ import { Instance, Instances } from '@react-three/drei'
 import * as THREE from 'three'
 
 // Update to use 35 stickers
-const stickerUrls = Array(35).fill(null).map((_, i) => `./stickers/slice${(i % 35) + 1}.png`)
+const stickerUrls = Array(35).fill(null).map((_, i) => 
+  `${import.meta.env.BASE_URL}stickers/slice${(i % 35) + 1}.png`
+)
 
 // Create a shared texture loader
 const textureLoader = new THREE.TextureLoader()

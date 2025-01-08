@@ -1,7 +1,6 @@
 import { Canvas, useLoader, useFrame, useThree } from '@react-three/fiber'
 import { FloatingStickers } from './components/FloatingStickers'
 import { Links } from './components/Links'
-import { Stars, Stats } from '@react-three/drei'
 import * as THREE from 'three'
 import { TextureLoader } from 'three'
 import styled from 'styled-components'
@@ -23,7 +22,7 @@ const CanvasContainer = styled.div`
 `
 
 const Jupiter = memo(forwardRef(({ position, onReady }, ref) => {
-  const texture = useLoader(TextureLoader, '/jupiter/Jupiter_diff.jpg', (progress) => {
+  const texture = useLoader(TextureLoader, `${import.meta.env.BASE_URL}jupiter/Jupiter_diff.jpg`, (progress) => {
     // Update loading progress
     const progressBar = document.getElementById('progress-bar-fill')
     const progressText = document.getElementById('loading-progress')
@@ -184,7 +183,6 @@ function App() {
           <color attach="background" args={['#000000']} />
           <ambientLight intensity={0.3} />
           <pointLight position={[10, 10, 10]} intensity={1.5} />
-          <Stats />
           <FloatingStickers />
           <Jupiter 
             ref={jupiterRef} 
